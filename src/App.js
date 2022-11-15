@@ -9,7 +9,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Main>
-        <p>cuzinho a milanesa</p>
+        
       </Main>
     </>
   );
