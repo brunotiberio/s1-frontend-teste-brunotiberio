@@ -3,8 +3,12 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useContext } from "react";
+import { ResultsContext } from "../../contexts/ResultsContext";
 
 export const Inputs = () => {
+  const { setResult } = useContext(ResultsContext);
+
   const formSchema = yup.object().shape({
     amount: yup.number().required("Valor é obrigatório"),
     installments: yup
@@ -25,11 +29,8 @@ export const Inputs = () => {
   });
 
   const onSubmitFunction = (data) => {
-    //enviar para a api
-    console.log(data);
+    setResult(data)
   };
-
-  console.log(errors);
 
   return (
     <>
@@ -40,7 +41,9 @@ export const Inputs = () => {
           variant="outlined"
           {...register("amount")}
           InputProps={{
-            startAdornment: <InputAdornment position="start">R$</InputAdornment>,
+            startAdornment: (
+              <InputAdornment position="start">R$</InputAdornment>
+            ),
           }}
           helperText={
             errors.amount
