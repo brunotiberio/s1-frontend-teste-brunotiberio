@@ -1,5 +1,6 @@
 import "./App.css";
 import { Header } from "./components/header";
+import { Inputs } from "./components/inputs";
 import { Main } from "./components/main";
 import GlobalStyle from "./styles/global";
 
@@ -9,7 +10,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Main>
-        
+        <Inputs />
       </Main>
     </>
   );
