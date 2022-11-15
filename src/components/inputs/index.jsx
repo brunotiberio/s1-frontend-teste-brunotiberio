@@ -1,17 +1,19 @@
 import { Button, TextField } from "@mui/material";
+import InputAdornment from "@mui/material/InputAdornment";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 export const Inputs = () => {
   const formSchema = yup.object().shape({
-    amount: yup.string().required("Valor é obrigatório"),
+    amount: yup.number().required("Valor é obrigatório"),
     installments: yup
       .number()
       .required("Número de parcelas é obrigatório")
       .min(1, "A quantidade mínima de parcelas deve ser 1")
-      .max(12, "A quantidade máxima de parcelas deve ser 12"),
-    mdr: yup.string().required("Informe o MDR"),
+      .max(12, "A quantidade máxima de parcelas deve ser 12")
+      .integer("Digite apenas números inteiros"),
+    mdr: yup.number().required("Informe o MDR"),
   });
 
   const {
@@ -37,7 +39,17 @@ export const Inputs = () => {
           label="Informe o valor da venda"
           variant="outlined"
           {...register("amount")}
-          helperText={errors.amount && errors.amount.message}
+          InputProps={{
+            startAdornment: <InputAdornment position="start">R$</InputAdornment>,
+          }}
+          helperText={
+            errors.amount
+              ? errors.amount.message ===
+                'amount must be a `number` type, but the final value was: `NaN` (cast from the value `""`).'
+                ? "Valor é obrigatório"
+                : errors.amount.message
+              : "Digite o valor no formato 1250.30"
+          }
         />
         <TextField
           label="Em quantas parcelas?"
@@ -59,7 +71,14 @@ export const Inputs = () => {
           error={errors.mdr && true}
           variant="outlined"
           {...register("mdr")}
-          helperText={errors.mdr && errors.mdr.message}
+          helperText={
+            errors.mdr
+              ? errors.mdr.message ===
+                'mdr must be a `number` type, but the final value was: `NaN` (cast from the value `""`).'
+                ? "Número de parcelas é obrigatório"
+                : errors.mdr.message
+              : "Apenas números são aceitos"
+          }
         />
         <Button type="submit" variant="contained">
           SIMULAR
