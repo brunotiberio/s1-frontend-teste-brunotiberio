@@ -43,7 +43,14 @@ export const Inputs = () => {
           label="Em quantas parcelas?"
           error={errors.installments && true}
           variant="outlined"
-          helperText={errors.installments ? errors.installments.message : "Máximo de 12 parcelas"}
+          helperText={
+            errors.installments
+              ? errors.installments.message ===
+                'installments must be a `number` type, but the final value was: `NaN` (cast from the value `""`).'
+                ? "Número de parcelas é obrigatório"
+                : errors.installments.message
+              : "Número máximo de parcelas é 12"
+          }
           {...register("installments")}
         />
         <p></p>
