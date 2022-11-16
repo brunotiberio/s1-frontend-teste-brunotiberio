@@ -6,7 +6,6 @@ export const Result = () => {
 
   return (
     <>
-      <h2>VOCÊ RECEBERÁ:</h2>
       <ul>
         <li>
           <p>Amanhã: </p>
