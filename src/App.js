@@ -1,6 +1,7 @@
 import "./App.css";
 import { Header } from "./components/header";
 import { Main } from "./components/main";
+import Paths from "./routes";
 import GlobalStyle from "./styles/global";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Main>
-        
+        <Paths />
       </Main>
     </>
   );
