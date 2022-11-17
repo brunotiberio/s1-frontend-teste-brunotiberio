@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { ResultsContext } from "../../contexts/ResultsContext";
+import { StyledForm, StyledTextField } from "./style";
 
 export const Inputs = () => {
   const { setResult } = useContext(ResultsContext);
@@ -34,8 +35,8 @@ export const Inputs = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmitFunction)}>
-        <TextField
+      <StyledForm onSubmit={handleSubmit(onSubmitFunction)}>
+        <StyledTextField
           error={errors.amount && true}
           label="Informe o valor da venda"
           variant="outlined"
@@ -50,11 +51,11 @@ export const Inputs = () => {
               ? errors.amount.message ===
                 'amount must be a `number` type, but the final value was: `NaN` (cast from the value `""`).'
                 ? "Valor é obrigatório"
-                : 'Valor inválido, digite no formato 1234.56'
+                : "Valor inválido, digite no formato 1234.56"
               : "Digite o valor no formato 1250.30"
           }
         />
-        <TextField
+        <StyledTextField
           label="Em quantas parcelas?"
           error={errors.installments && true}
           variant="outlined"
@@ -63,13 +64,13 @@ export const Inputs = () => {
               ? errors.installments.message ===
                 'installments must be a `number` type, but the final value was: `NaN` (cast from the value `""`).'
                 ? "Número de parcelas é obrigatório"
-                : 'Valor inválido, digite apenas números'
+                : "Valor inválido, digite apenas números"
               : "Número máximo de parcelas é 12"
           }
           {...register("installments")}
         />
         <p></p>
-        <TextField
+        <StyledTextField
           label="Informe o percentual de MDR"
           error={errors.mdr && true}
           variant="outlined"
@@ -79,17 +80,14 @@ export const Inputs = () => {
               ? errors.mdr.message ===
                 'mdr must be a `number` type, but the final value was: `NaN` (cast from the value `""`).'
                 ? "Número de parcelas é obrigatório"
-                : 'Valor inválido, digite no formato 4.5'
+                : "Valor inválido, digite no formato 4.5"
               : "Apenas números são aceitos"
           }
         />
         <Button type="submit" variant="contained">
           SIMULAR
         </Button>
-      </form>
-      <div>
-        <h2>VOCÊ RECEBERÁ:</h2>
-      </div>
+      </StyledForm>
     </>
   );
 };
