@@ -64,7 +64,7 @@ export const Inputs = () => {
               ? errors.installments.message ===
                 'installments must be a `number` type, but the final value was: `NaN` (cast from the value `""`).'
                 ? "Número de parcelas é obrigatório"
-                : "Valor inválido, digite apenas números"
+                : "Valor inválido, máximo 12 parcelas"
               : "Número máximo de parcelas é 12"
           }
           {...register("installments")}
