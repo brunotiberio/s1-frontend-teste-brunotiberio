@@ -29,7 +29,7 @@ export const Inputs = () => {
   });
 
   const onSubmitFunction = (data) => {
-    setResult(data)
+    setResult(data);
   };
 
   return (
@@ -87,6 +87,9 @@ export const Inputs = () => {
           SIMULAR
         </Button>
       </form>
+      <div>
+        <h2>VOCÊ RECEBERÁ:</h2>
+      </div>
     </>
   );
 };
