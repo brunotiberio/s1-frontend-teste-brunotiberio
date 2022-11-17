@@ -43,7 +43,7 @@ Tecnologias usadas nesse projeto:
 - [React-router-dom](https://v5.reactrouter.com/web/guides/quick-start)
 - [Eslint](https://eslint.org)
 
-**Base URL do deploy: colocar o link do vercel aqui**
+**Base URL do deploy: (https://s1-frontend-teste-brunotiberio.vercel.app)**
 
 ### 1. Desenvolvedor
 
