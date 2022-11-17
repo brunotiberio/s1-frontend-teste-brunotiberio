@@ -50,7 +50,7 @@ export const Inputs = () => {
               ? errors.amount.message ===
                 'amount must be a `number` type, but the final value was: `NaN` (cast from the value `""`).'
                 ? "Valor é obrigatório"
-                : errors.amount.message
+                : 'Valor inválido, digite no formato 1234.56'
               : "Digite o valor no formato 1250.30"
           }
         />
@@ -63,7 +63,7 @@ export const Inputs = () => {
               ? errors.installments.message ===
                 'installments must be a `number` type, but the final value was: `NaN` (cast from the value `""`).'
                 ? "Número de parcelas é obrigatório"
-                : errors.installments.message
+                : 'Valor inválido, digite apenas números'
               : "Número máximo de parcelas é 12"
           }
           {...register("installments")}
@@ -79,7 +79,7 @@ export const Inputs = () => {
               ? errors.mdr.message ===
                 'mdr must be a `number` type, but the final value was: `NaN` (cast from the value `""`).'
                 ? "Número de parcelas é obrigatório"
-                : errors.mdr.message
+                : 'Valor inválido, digite no formato 4.5'
               : "Apenas números são aceitos"
           }
         />
